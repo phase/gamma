@@ -1,0 +1,14 @@
+--- minecraft/src/net/minecraft/unknown/TileEntityChest.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/TileEntityChest.java	2018-01-21 13:02:59.539889241 -0800
+@@ -14,6 +14,11 @@
+       return this.chestContents[var1];
+    }
+ 
++   @Override
++   public void onInventoryChanged() {
++      System.out.println("TileEntityChest#onInventoryChanged() called");
++   }
++
+    public ItemStack decrStackSize(int var1, int var2) {
+       if (this.chestContents[var1] != null) {
+          if (this.chestContents[var1].stackSize <= var2) {

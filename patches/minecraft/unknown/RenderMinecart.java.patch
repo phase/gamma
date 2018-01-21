@@ -1,0 +1,14 @@
+--- minecraft/src/net/minecraft/unknown/RenderMinecart.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderMinecart.java	2018-01-21 12:34:43.257362158 -0800
+@@ -10,6 +10,11 @@
+       this.modelMinecart = new ModelMinecart();
+    }
+ 
++   @Override
++   public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9) {
++      if (var1 instanceof EntityMinecart) func_152_a((EntityMinecart) var1, var2, var4, var6, var8, var9);
++   }
++
+    public void func_152_a(EntityMinecart var1, double var2, double var4, double var6, float var8, float var9) {
+       GL11.glPushMatrix();
+       double var10 = var1.lastTickPosX + (var1.posX - var1.lastTickPosX) * (double)var9;

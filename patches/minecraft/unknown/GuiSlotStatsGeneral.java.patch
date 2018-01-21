@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/GuiSlotStatsGeneral.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiSlotStatsGeneral.java	2018-01-21 12:02:52.605662808 -0800
+@@ -1,6 +1,8 @@
+ package net.minecraft.unknown;
+ 
+ class GuiSlotStatsGeneral extends GuiSlot {
++   public GuiStats field_27276_a;
++
+    public GuiSlotStatsGeneral(GuiStats var1) {
+       super(GuiStats.func_27141_a(var1), var1.width, var1.height, 32, var1.height - 64, 10);
+       this.field_27276_a = var1;

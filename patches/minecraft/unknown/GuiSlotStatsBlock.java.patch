@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/GuiSlotStatsBlock.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiSlotStatsBlock.java	2018-01-21 12:03:06.865628694 -0800
+@@ -3,6 +3,8 @@
+ import java.util.ArrayList;
+ 
+ class GuiSlotStatsBlock extends GuiSlotStats {
++   public GuiStats field_27274_a;
++
+    public GuiSlotStatsBlock(GuiStats var1) {
+       super(var1);
+       this.field_27274_a = var1;

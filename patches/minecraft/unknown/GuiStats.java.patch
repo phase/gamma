@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/GuiStats.java	2018-01-21 00:00:24.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiStats.java	2018-01-21 12:54:17.015924637 -0800
+@@ -9,7 +9,7 @@
+    private GuiSlotStatsGeneral field_27151_l;
+    private GuiSlotStatsItem field_27150_m;
+    private GuiSlotStatsBlock field_27157_n;
+-   private StatFileWriter field_27156_o;
++   public StatFileWriter field_27156_o;
+    private GuiSlot field_27155_p = null;
+ 
+    public GuiStats(GuiScreen var1, StatFileWriter var2) {

@@ -1,0 +1,12 @@
+--- minecraft/src/net/minecraft/unknown/J_ObjectNodeContainer.java	2018-01-21 00:00:32.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_ObjectNodeContainer.java	2018-01-21 12:03:36.781571961 -0800
+@@ -1,6 +1,9 @@
+ package net.minecraft.unknown;
+ 
+ class J_ObjectNodeContainer implements J_NodeContainer {
++   public J_JsonListenerToJdomAdapter field_27295_b;
++   public J_JsonObjectNodeBuilder field_27296_a;
++
+    J_ObjectNodeContainer(J_JsonListenerToJdomAdapter var1, J_JsonObjectNodeBuilder var2) {
+       this.field_27295_b = var1;
+       this.field_27296_a = var2;

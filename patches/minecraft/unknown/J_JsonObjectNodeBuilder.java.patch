@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonObjectNodeBuilder.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonObjectNodeBuilder.java	2018-01-21 13:00:27.747324694 -0800
+@@ -4,7 +4,7 @@
+ import java.util.List;
+ 
+ public final class J_JsonObjectNodeBuilder implements J_JsonNodeBuilder {
+-   private final List field_27238_a = new LinkedList();
++   public final List<J_JsonFieldBuilder> field_27238_a = new LinkedList<>();
+ 
+    J_JsonObjectNodeBuilder() {
+    }
+@@ -14,7 +14,7 @@
+       return this;
+    }
+ 
+-   public J_JsonRootNode func_27235_a() {
++   public J_JsonRootNode func_27234_b() {
+       return J_JsonNodeFactories.func_27312_a(new J_JsonObjectNodeList(this));
+    }
+ }

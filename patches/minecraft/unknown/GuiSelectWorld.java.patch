@@ -1,0 +1,30 @@
+--- minecraft/src/net/minecraft/unknown/GuiSelectWorld.java	2018-01-21 00:00:36.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiSelectWorld.java	2018-01-21 13:16:51.443453341 -0800
+@@ -6,19 +6,19 @@
+ import java.util.List;
+ 
+ public class GuiSelectWorld extends GuiScreen {
+-   private final DateFormat dateFormatter = new SimpleDateFormat();
++   public final DateFormat dateFormatter = new SimpleDateFormat();
+    protected GuiScreen parentScreen;
+    protected String screenTitle = "Select world";
+    private boolean selected = false;
+-   private int selectedWorld;
+-   private List saveList;
++   public int selectedWorld;
++   public List saveList;
+    private GuiWorldSlot worldSlotContainer;
+-   private String field_22098_o;
+-   private String field_22097_p;
++   public String field_22098_o;
++   public String field_22097_p;
+    private boolean deleting;
+-   private GuiButton buttonRename;
+-   private GuiButton buttonSelect;
+-   private GuiButton buttonDelete;
++   public GuiButton buttonRename;
++   public GuiButton buttonSelect;
++   public GuiButton buttonDelete;
+ 
+    public GuiSelectWorld(GuiScreen var1) {
+       this.parentScreen = var1;

@@ -1,0 +1,32 @@
+--- minecraft/src/net/minecraft/unknown/SorterStatsItem.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/SorterStatsItem.java	2018-01-21 12:54:38.456120958 -0800
+@@ -2,13 +2,16 @@
+ 
+ import java.util.Comparator;
+ 
+-class SorterStatsItem implements Comparator {
++class SorterStatsItem implements Comparator<StatCrafting> {
++   public GuiSlotStatsItem field_27372_b;
++   public GuiStats field_27373_a;
++
+    SorterStatsItem(GuiSlotStatsItem var1, GuiStats var2) {
+       this.field_27372_b = var1;
+       this.field_27373_a = var2;
+    }
+ 
+-   public int func_27371_a(StatCrafting var1, StatCrafting var2) {
++   public int compare(StatCrafting var1, StatCrafting var2) {
+       int var3 = var1.func_25072_b();
+       int var4 = var2.func_25072_b();
+       StatBase var5 = null;
+@@ -33,8 +36,8 @@
+             return -1;
+          }
+ 
+-         int var7 = GuiStats.func_27142_c(this.field_27372_b.field_27275_a).writeStat(var5);
+-         int var8 = GuiStats.func_27142_c(this.field_27372_b.field_27275_a).writeStat(var6);
++         int var7 = this.field_27372_b.field_27275_a.field_27156_o.writeStat(var5);
++         int var8 = this.field_27372_b.field_27275_a.field_27156_o.writeStat(var6);
+          if (var7 != var8) {
+             return (var7 - var8) * this.field_27372_b.field_27270_f;
+          }

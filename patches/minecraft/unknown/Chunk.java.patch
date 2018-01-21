@@ -1,14 +1,16 @@
 --- minecraft/src/net/minecraft/unknown/Chunk.java	2018-01-21 00:00:30.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/Chunk.java	2018-01-21 00:32:52.976625422 -0800
-@@ -18,7 +18,7 @@
++++ src/main/java/net/minecraft/unknown/Chunk.java	2018-01-21 12:01:22.753992429 -0800
+@@ -18,8 +18,8 @@
     public int lowestBlockHeight;
     public final int xPosition;
     public final int zPosition;
 -   public Map chunkTileEntityMap;
+-   public List[] entities;
 +   public Map<ChunkPosition, TileEntity> chunkTileEntityMap;
-    public List[] entities;
++   public List<Entity>[] entities;
     public boolean isTerrainPopulated;
     public boolean isModified;
+    public boolean neverSave;
 @@ -27,7 +27,7 @@
     public long lastSaveTime;
  
@@ -18,3 +20,12 @@
        this.entities = new List[8];
        this.isTerrainPopulated = false;
        this.isModified = false;
+@@ -39,7 +39,7 @@
+       this.heightMap = new byte[256];
+ 
+       for(int var4 = 0; var4 < this.entities.length; ++var4) {
+-         this.entities[var4] = new ArrayList();
++         this.entities[var4] = new ArrayList<>();
+       }
+ 
+    }

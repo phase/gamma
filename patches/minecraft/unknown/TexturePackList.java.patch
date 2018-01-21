@@ -1,5 +1,5 @@
 --- minecraft/src/net/minecraft/unknown/TexturePackList.java	2018-01-21 00:00:28.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/TexturePackList.java	2018-01-21 00:20:22.198821469 -0800
++++ src/main/java/net/minecraft/unknown/TexturePackList.java	2018-01-21 12:48:17.480641683 -0800
 @@ -9,10 +9,10 @@
  import net.minecraft.client.Minecraft;
  
@@ -22,3 +22,13 @@
                    var9.printStackTrace();
                 }
              }
+@@ -89,7 +89,7 @@
+       this.availableTexturePacks = var1;
+    }
+ 
+-   public List availableTexturePacks() {
+-      return new ArrayList(this.availableTexturePacks);
++   public List<TexturePackBase> availableTexturePacks() {
++      return new ArrayList<>(this.availableTexturePacks);
+    }
+ }

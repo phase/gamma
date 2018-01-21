@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/StatStringFormatKeyInv.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/StatStringFormatKeyInv.java	2018-01-21 13:06:07.708200713 -0800
+@@ -4,6 +4,8 @@
+ import org.lwjgl.input.Keyboard;
+ 
+ public class StatStringFormatKeyInv implements IStatStringFormat {
++   public Minecraft mc;
++
+    public StatStringFormatKeyInv(Minecraft var1) {
+       this.mc = var1;
+    }

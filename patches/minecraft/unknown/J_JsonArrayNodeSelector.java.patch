@@ -1,0 +1,27 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonArrayNodeSelector.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonArrayNodeSelector.java	2018-01-21 12:40:58.436674361 -0800
+@@ -6,6 +6,11 @@
+    J_JsonArrayNodeSelector() {
+    }
+ 
++   @Override
++   public boolean func_27058_a(Object var1) {
++       return var1 instanceof J_JsonNode && func_27074_a((J_JsonNode) var1);
++   }
++
+    public boolean func_27074_a(J_JsonNode var1) {
+       return EnumJsonNodeType.ARRAY == var1.func_27218_a();
+    }
+@@ -14,6 +19,12 @@
+       return "A short form array";
+    }
+ 
++   @Override
++   protected Object func_27063_c(Object var1) {
++       if (var1 instanceof J_JsonNode) return func_27075_b((J_JsonNode) var1);
++       return null;
++   }
++
+    public List func_27075_b(J_JsonNode var1) {
+       return var1.func_27215_d();
+    }

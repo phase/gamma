@@ -1,13 +1,24 @@
 --- minecraft/src/net/minecraft/unknown/RenderEngine.java	2018-01-21 00:00:30.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/RenderEngine.java	2018-01-21 00:52:59.707460825 -0800
-@@ -18,13 +18,13 @@
++++ src/main/java/net/minecraft/unknown/RenderEngine.java	2018-01-21 11:23:06.161120571 -0800
+@@ -8,23 +8,19 @@
+ import java.io.InputStream;
+ import java.nio.ByteBuffer;
+ import java.nio.IntBuffer;
+-import java.util.ArrayList;
+-import java.util.HashMap;
+-import java.util.Iterator;
+-import java.util.List;
+-import java.util.Map;
++import java.util.*;
+ import javax.imageio.ImageIO;
+ import org.lwjgl.opengl.GL11;
  
  public class RenderEngine {
     public static boolean useMipmaps = false;
 -   private HashMap textureMap = new HashMap();
 -   private HashMap field_28151_c = new HashMap();
 +   private HashMap<String, Integer> textureMap = new HashMap<>();
-+   private HashMap<String, Integer[]> field_28151_c = new HashMap<>();
++   private HashMap<String, int[]> field_28151_c = new HashMap<>();
     private HashMap textureNameToImageMap = new HashMap();
     private IntBuffer singleIntBuffer = GLAllocation.createDirectIntBuffer(1);
     private ByteBuffer imageData = GLAllocation.createDirectByteBuffer(1048576);
@@ -17,12 +28,30 @@
     private GameSettings options;
     private boolean clampTexture = false;
     private boolean blurTexture = false;
-@@ -44,7 +44,7 @@
+@@ -44,7 +40,7 @@
  
     public int[] func_28149_a(String var1) {
        TexturePackBase var2 = this.texturePack.selectedTexturePack;
 -      int[] var3 = (int[])this.field_28151_c.get(var1);
-+      Integer[] var3 = this.field_28151_c.get(var1);
++      int[] var3 = this.field_28151_c.get(var1);
        if (var3 != null) {
           return var3;
        } else {
+@@ -72,7 +68,7 @@
+ 
+             this.field_28151_c.put(var1, var7);
+             return var7;
+-         } catch (IOException var5) {
++         } catch (Exception var5) {
+             var5.printStackTrace();
+             int[] var4 = this.func_28148_b(this.missingTextureImage);
+             this.field_28151_c.put(var1, var4);
+@@ -504,7 +500,7 @@
+ 
+    }
+ 
+-   private BufferedImage readTextureImage(InputStream var1) {
++   private BufferedImage readTextureImage(InputStream var1) throws IOException {
+       BufferedImage var2 = ImageIO.read(var1);
+       var1.close();
+       return var2;

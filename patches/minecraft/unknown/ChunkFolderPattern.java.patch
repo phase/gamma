@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/ChunkFolderPattern.java	2018-01-21 00:00:20.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ChunkFolderPattern.java	2018-01-21 12:57:22.613625510 -0800
+@@ -8,7 +8,7 @@
+ class ChunkFolderPattern implements FileFilter {
+    public static final Pattern field_22392_a = Pattern.compile("[0-9a-z]|([0-9a-z][0-9a-z])");
+ 
+-   private ChunkFolderPattern() {
++   public ChunkFolderPattern() {
+    }
+ 
+    public boolean accept(File var1) {

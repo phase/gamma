@@ -1,0 +1,33 @@
+--- minecraft/src/net/minecraft/unknown/NetworkMasterThread.java	2018-01-21 00:00:40.000000000 -0800
++++ src/main/java/net/minecraft/unknown/NetworkMasterThread.java	2018-01-21 13:08:39.196727537 -0800
+@@ -1,6 +1,8 @@
+ package net.minecraft.unknown;
+ 
+ class NetworkMasterThread extends Thread {
++   public NetworkManager netManager;
++
+    NetworkMasterThread(NetworkManager var1) {
+       this.netManager = var1;
+    }
+@@ -8,17 +10,17 @@
+    public void run() {
+       try {
+          Thread.sleep(5000L);
+-         if (NetworkManager.getReadThread(this.netManager).isAlive()) {
++         if (this.netManager.readThread.isAlive()) {
+             try {
+-               NetworkManager.getReadThread(this.netManager).stop();
++               this.netManager.readThread.stop();
+             } catch (Throwable var3) {
+                ;
+             }
+          }
+ 
+-         if (NetworkManager.getWriteThread(this.netManager).isAlive()) {
++         if (this.netManager.writeThread.isAlive()) {
+             try {
+-               NetworkManager.getWriteThread(this.netManager).stop();
++               this.netManager.writeThread.stop();
+             } catch (Throwable var2) {
+                ;
+             }

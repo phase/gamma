@@ -1,14 +1,40 @@
 --- minecraft/src/net/minecraft/unknown/StatsSyncher.java	2018-01-21 00:00:20.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/StatsSyncher.java	2018-01-21 00:47:25.835242158 -0800
-@@ -8,7 +8,7 @@
++++ src/main/java/net/minecraft/unknown/StatsSyncher.java	2018-01-21 11:57:20.724124734 -0800
+@@ -8,16 +8,16 @@
  import java.util.Map;
  
  public class StatsSyncher {
 -   private volatile boolean field_27438_a = false;
-+   private volatile boolean busy = false;
-    private volatile Map field_27437_b = null;
-    private volatile Map field_27436_c = null;
+-   private volatile Map field_27437_b = null;
+-   private volatile Map field_27436_c = null;
++   public volatile boolean busy = false;
++   public volatile Map field_27437_b = null;
++   public volatile Map field_27436_c = null;
     private StatFileWriter field_27435_d;
+-   private File field_27434_e;
+-   private File field_27433_f;
+-   private File field_27432_g;
+-   private File field_27431_h;
+-   private File field_27430_i;
+-   private File field_27429_j;
++   public File field_27434_e;
++   public File field_27433_f;
++   public File field_27432_g;
++   public File field_27431_h;
++   public File field_27430_i;
++   public File field_27429_j;
+    private Session field_27428_k;
+    private int field_27427_l = 0;
+    private int field_27426_m = 0;
+@@ -55,7 +55,7 @@
+ 
+    }
+ 
+-   private Map func_27415_a(File var1, File var2, File var3) {
++   public Map func_27415_a(File var1, File var2, File var3) {
+       if (var1.exists()) {
+          return this.func_27408_a(var1);
+       } else if (var3.exists()) {
 @@ -96,12 +96,16 @@
     }
  

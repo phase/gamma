@@ -1,0 +1,10 @@
+--- minecraft/src/net/minecraft/unknown/OsMap.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/OsMap.java	2018-01-21 12:35:10.037594753 -0800
+@@ -2,6 +2,7 @@
+ 
+ // $FF: synthetic class
+ class OsMap {
++   public static int[] field_1193_a = new int[4];
+    static {
+       try {
+          field_1193_a[EnumOS1.linux.ordinal()] = 1;

@@ -1,0 +1,22 @@
+--- minecraft/src/net/minecraft/unknown/ThreadDownloadResources.java	2018-01-21 00:00:22.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadDownloadResources.java	2018-01-21 12:55:21.656516670 -0800
+@@ -1,9 +1,6 @@
+ package net.minecraft.unknown;
+ 
+-import java.io.DataInputStream;
+-import java.io.DataOutputStream;
+-import java.io.File;
+-import java.io.FileOutputStream;
++import java.io.*;
+ import java.net.URL;
+ import javax.xml.parsers.DocumentBuilder;
+ import javax.xml.parsers.DocumentBuilderFactory;
+@@ -109,7 +106,7 @@
+ 
+    }
+ 
+-   private void downloadResource(URL var1, File var2, long var3) {
++   private void downloadResource(URL var1, File var2, long var3) throws IOException {
+       byte[] var5 = new byte[4096];
+       DataInputStream var6 = new DataInputStream(var1.openStream());
+       DataOutputStream var7 = new DataOutputStream(new FileOutputStream(var2));

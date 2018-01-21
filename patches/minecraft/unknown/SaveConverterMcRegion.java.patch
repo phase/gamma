@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/SaveConverterMcRegion.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/SaveConverterMcRegion.java	2018-01-21 12:57:57.009941039 -0800
+@@ -105,7 +105,7 @@
+ 
+    }
+ 
+-   private void func_22181_a(File var1, ArrayList var2, int var3, int var4, IProgressUpdate var5) {
++   private void func_22181_a(File var1, ArrayList<ChunkFile> var2, int var3, int var4, IProgressUpdate var5) {
+       Collections.sort(var2);
+       byte[] var6 = new byte[4096];
+ 
+@@ -138,7 +138,7 @@
+       RegionFileCache.func_22192_a();
+    }
+ 
+-   private void func_22182_a(ArrayList var1, int var2, int var3, IProgressUpdate var4) {
++   private void func_22182_a(ArrayList<File> var1, int var2, int var3, IProgressUpdate var4) {
+       for(File var6 : var1) {
+          File[] var7 = var6.listFiles();
+          func_22179_a(var7);

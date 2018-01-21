@@ -1,0 +1,60 @@
+--- minecraft/src/net/minecraft/unknown/GuiTexturePackSlot.java	2018-01-21 00:00:24.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiTexturePackSlot.java	2018-01-21 12:50:31.973867381 -0800
+@@ -4,25 +4,27 @@
+ import org.lwjgl.opengl.GL11;
+ 
+ class GuiTexturePackSlot extends GuiSlot {
++   public GuiTexturePacks parentTexturePackGui;
++
+    public GuiTexturePackSlot(GuiTexturePacks var1) {
+-      super(GuiTexturePacks.func_22124_a(var1), var1.width, var1.height, 32, var1.height - 55 + 4, 36);
++      super(var1.mc, var1.width, var1.height, 32, var1.height - 55 + 4, 36);
+       this.parentTexturePackGui = var1;
+    }
+ 
+    protected int getSize() {
+-      List var1 = GuiTexturePacks.func_22126_b(this.parentTexturePackGui).texturePackList.availableTexturePacks();
++      List var1 = this.parentTexturePackGui.mc.texturePackList.availableTexturePacks();
+       return var1.size();
+    }
+ 
+    protected void elementClicked(int var1, boolean var2) {
+-      List var3 = GuiTexturePacks.func_22119_c(this.parentTexturePackGui).texturePackList.availableTexturePacks();
+-      GuiTexturePacks.func_22122_d(this.parentTexturePackGui).texturePackList.setTexturePack((TexturePackBase)var3.get(var1));
+-      GuiTexturePacks.func_22117_e(this.parentTexturePackGui).renderEngine.refreshTextures();
++      List var3 = this.parentTexturePackGui.mc.texturePackList.availableTexturePacks();
++      this.parentTexturePackGui.mc.texturePackList.setTexturePack((TexturePackBase)var3.get(var1));
++      this.parentTexturePackGui.mc.renderEngine.refreshTextures();
+    }
+ 
+    protected boolean isSelected(int var1) {
+-      List var2 = GuiTexturePacks.func_22118_f(this.parentTexturePackGui).texturePackList.availableTexturePacks();
+-      return GuiTexturePacks.func_22116_g(this.parentTexturePackGui).texturePackList.selectedTexturePack == var2.get(var1);
++      List var2 = this.parentTexturePackGui.mc.texturePackList.availableTexturePacks();
++      return this.parentTexturePackGui.mc.texturePackList.selectedTexturePack == var2.get(var1);
+    }
+ 
+    protected int getContentHeight() {
+@@ -34,8 +36,8 @@
+    }
+ 
+    protected void drawSlot(int var1, int var2, int var3, int var4, Tessellator var5) {
+-      TexturePackBase var6 = (TexturePackBase)GuiTexturePacks.func_22121_h(this.parentTexturePackGui).texturePackList.availableTexturePacks().get(var1);
+-      var6.bindThumbnailTexture(GuiTexturePacks.func_22123_i(this.parentTexturePackGui));
++      TexturePackBase var6 = this.parentTexturePackGui.mc.texturePackList.availableTexturePacks().get(var1);
++      var6.bindThumbnailTexture(this.parentTexturePackGui.mc);
+       GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+       var5.startDrawingQuads();
+       var5.setColorOpaque_I(16777215);
+@@ -44,8 +46,8 @@
+       var5.addVertexWithUV((double)(var2 + 32), (double)var3, 0.0D, 1.0D, 0.0D);
+       var5.addVertexWithUV((double)var2, (double)var3, 0.0D, 0.0D, 0.0D);
+       var5.draw();
+-      this.parentTexturePackGui.drawString(GuiTexturePacks.func_22127_j(this.parentTexturePackGui), var6.texturePackFileName, var2 + 32 + 2, var3 + 1, 16777215);
+-      this.parentTexturePackGui.drawString(GuiTexturePacks.func_22120_k(this.parentTexturePackGui), var6.firstDescriptionLine, var2 + 32 + 2, var3 + 12, 8421504);
+-      this.parentTexturePackGui.drawString(GuiTexturePacks.func_22125_l(this.parentTexturePackGui), var6.secondDescriptionLine, var2 + 32 + 2, var3 + 12 + 10, 8421504);
++      this.parentTexturePackGui.drawString(this.parentTexturePackGui.fontRenderer, var6.texturePackFileName, var2 + 32 + 2, var3 + 1, 16777215);
++      this.parentTexturePackGui.drawString(this.parentTexturePackGui.fontRenderer, var6.firstDescriptionLine, var2 + 32 + 2, var3 + 12, 8421504);
++      this.parentTexturePackGui.drawString(this.parentTexturePackGui.fontRenderer, var6.secondDescriptionLine, var2 + 32 + 2, var3 + 12 + 10, 8421504);
+    }
+ }

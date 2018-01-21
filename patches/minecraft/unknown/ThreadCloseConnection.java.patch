@@ -1,0 +1,22 @@
+--- minecraft/src/net/minecraft/unknown/ThreadCloseConnection.java	2018-01-21 00:00:40.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadCloseConnection.java	2018-01-21 13:01:36.459910471 -0800
+@@ -1,6 +1,8 @@
+ package net.minecraft.unknown;
+ 
+ class ThreadCloseConnection extends Thread {
++   public NetworkManager field_28109_a;
++
+    ThreadCloseConnection(NetworkManager var1) {
+       this.field_28109_a = var1;
+    }
+@@ -8,8 +10,8 @@
+    public void run() {
+       try {
+          Thread.sleep(2000L);
+-         if (NetworkManager.isRunning(this.field_28109_a)) {
+-            NetworkManager.getWriteThread(this.field_28109_a).interrupt();
++         if (this.field_28109_a.isRunning) {
++            this.field_28109_a.writeThread.interrupt();
+             this.field_28109_a.networkShutdown("disconnect.closed");
+          }
+       } catch (Exception var2) {

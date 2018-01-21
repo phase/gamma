@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/CanvasMinecraftApplet.java	2018-01-21 00:00:36.000000000 -0800
++++ src/main/java/net/minecraft/unknown/CanvasMinecraftApplet.java	2018-01-21 12:31:45.143836466 -0800
+@@ -4,6 +4,8 @@
+ import net.minecraft.client.MinecraftApplet;
+ 
+ public class CanvasMinecraftApplet extends Canvas {
++   public MinecraftApplet mcApplet;
++
+    public CanvasMinecraftApplet(MinecraftApplet var1) {
+       this.mcApplet = var1;
+    }

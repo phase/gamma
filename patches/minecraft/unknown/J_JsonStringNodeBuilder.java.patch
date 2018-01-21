@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonStringNodeBuilder.java	2018-01-21 00:00:24.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonStringNodeBuilder.java	2018-01-21 13:02:07.715889215 -0800
+@@ -7,7 +7,7 @@
+       this.field_27244_a = var1;
+    }
+ 
+-   public J_JsonStringNode func_27243_a() {
++   public J_JsonStringNode func_27234_b() {
+       return J_JsonNodeFactories.func_27316_a(this.field_27244_a);
+    }
+ }

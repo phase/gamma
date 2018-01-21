@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonStringNode.java	2018-01-21 00:00:34.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonStringNode.java	2018-01-21 12:05:25.985519395 -0800
+@@ -3,7 +3,7 @@
+ import java.util.List;
+ import java.util.Map;
+ 
+-public final class J_JsonStringNode extends J_JsonNode implements Comparable {
++public final class J_JsonStringNode extends J_JsonNode implements Comparable<J_JsonStringNode> {
+    private final String field_27224_a;
+ 
+    J_JsonStringNode(String var1) {
+@@ -49,7 +49,7 @@
+       return "JsonStringNode value:[" + this.field_27224_a + "]";
+    }
+ 
+-   public int func_27223_a(J_JsonStringNode var1) {
++   public int compareTo(J_JsonStringNode var1) {
+       return this.field_27224_a.compareTo(var1.field_27224_a);
+    }
+ }

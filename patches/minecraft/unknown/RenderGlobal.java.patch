@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/RenderGlobal.java	2018-01-21 00:00:32.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderGlobal.java	2018-01-21 12:29:31.334720743 -0800
+@@ -947,7 +947,7 @@
+             if (!var2) {
+                if (var11.distanceToEntitySquared(var1) > 256.0F) {
+                   int var12;
+-                  for(var12 = 0; var12 < var4 && (var6[var12] == null || var5.doCompare(var6[var12], var11) <= 0); ++var12) {
++                  for(var12 = 0; var12 < var4 && (var6[var12] == null || var5.compare(var6[var12], var11) <= 0); ++var12) {
+                      ;
+                   }
+ 

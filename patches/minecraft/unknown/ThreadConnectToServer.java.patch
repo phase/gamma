@@ -1,0 +1,40 @@
+--- minecraft/src/net/minecraft/unknown/ThreadConnectToServer.java	2018-01-21 00:00:40.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadConnectToServer.java	2018-01-21 12:28:49.210376281 -0800
+@@ -5,6 +5,11 @@
+ import net.minecraft.client.Minecraft;
+ 
+ class ThreadConnectToServer extends Thread {
++   public GuiConnecting connectingGui;
++   public Minecraft mc;
++   public String hostName;
++   public int port;
++
+    ThreadConnectToServer(GuiConnecting var1, Minecraft var2, String var3, int var4) {
+       this.connectingGui = var1;
+       this.mc = var2;
+@@ -20,7 +25,7 @@
+          }
+ 
+          GuiConnecting.getNetClientHandler(this.connectingGui).addToSendQueue(new Packet2Handshake(this.mc.session.username));
+-      } catch (UnknownHostException var2) {
++      /*} catch (UnknownHostException var2) {
+          if (GuiConnecting.isCancelled(this.connectingGui)) {
+             return;
+          }
+@@ -31,14 +36,14 @@
+             return;
+          }
+ 
+-         this.mc.displayGuiScreen(new GuiConnectFailed("connect.failed", "disconnect.genericReason", new Object[]{var3.getMessage()}));
++         this.mc.displayGuiScreen(new GuiConnectFailed("connect.failed", "disconnect.genericReason", new Object[]{var3.getMessage()}));*/
+       } catch (Exception var4) {
+          if (GuiConnecting.isCancelled(this.connectingGui)) {
+             return;
+          }
+ 
+          var4.printStackTrace();
+-         this.mc.displayGuiScreen(new GuiConnectFailed("connect.failed", "disconnect.genericReason", new Object[]{var4.toString()}));
++         this.mc.displayGuiScreen(new GuiConnectFailed("connect.failed", "disconnect.genericReason", var4.toString()));
+       }
+ 
+    }

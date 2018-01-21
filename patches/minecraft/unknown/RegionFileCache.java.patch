@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/RegionFileCache.java	2018-01-21 00:00:36.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RegionFileCache.java	2018-01-21 12:33:09.868557222 -0800
+@@ -10,7 +10,7 @@
+ import java.util.Map;
+ 
+ public class RegionFileCache {
+-   private static final Map cache = new HashMap();
++   private static final Map<File, Reference<RegionFile>> cache = new HashMap<>();
+ 
+    private RegionFileCache() {
+    }
+@@ -35,7 +35,7 @@
+       }
+ 
+       RegionFile var7 = new RegionFile(var4);
+-      cache.put(var4, new SoftReference(var7));
++      cache.put(var4, new SoftReference<>(var7));
+       return var7;
+    }
+ 

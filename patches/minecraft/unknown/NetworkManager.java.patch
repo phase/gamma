@@ -1,0 +1,46 @@
+--- minecraft/src/net/minecraft/unknown/NetworkManager.java	2018-01-21 00:00:34.000000000 -0800
++++ src/main/java/net/minecraft/unknown/NetworkManager.java	2018-01-21 13:08:05.600593419 -0800
+@@ -3,6 +3,7 @@
+ import java.io.BufferedOutputStream;
+ import java.io.DataInputStream;
+ import java.io.DataOutputStream;
++import java.io.IOException;
+ import java.net.Socket;
+ import java.net.SocketAddress;
+ import java.net.SocketException;
+@@ -19,14 +20,14 @@
+    private final SocketAddress remoteSocketAddress;
+    private DataInputStream socketInputStream;
+    private DataOutputStream socketOutputStream;
+-   private boolean isRunning = true;
+-   private List readPackets = Collections.synchronizedList(new ArrayList());
+-   private List dataPackets = Collections.synchronizedList(new ArrayList());
+-   private List chunkDataPackets = Collections.synchronizedList(new ArrayList());
++   public boolean isRunning = true;
++   private List<Packet> readPackets = Collections.synchronizedList(new ArrayList<>());
++   private List<Packet> dataPackets = Collections.synchronizedList(new ArrayList<>());
++   private List<Packet> chunkDataPackets = Collections.synchronizedList(new ArrayList<>());
+    private NetHandler netHandler;
+    private boolean isServerTerminating = false;
+-   private Thread writeThread;
+-   private Thread readThread;
++   public Thread writeThread;
++   public Thread readThread;
+    private boolean isTerminating = false;
+    private String terminationReason = "";
+    private Object[] field_20101_t;
+@@ -49,8 +50,12 @@
+          System.err.println(var5.getMessage());
+       }
+ 
+-      this.socketInputStream = new DataInputStream(var1.getInputStream());
+-      this.socketOutputStream = new DataOutputStream(new BufferedOutputStream(var1.getOutputStream(), 5120));
++      try {
++         this.socketInputStream = new DataInputStream(var1.getInputStream());
++         this.socketOutputStream = new DataOutputStream(new BufferedOutputStream(var1.getOutputStream(), 5120));
++      } catch (IOException e) {
++         e.printStackTrace();
++      }
+       this.readThread = new NetworkReaderThread(this, var2 + " read thread");
+       this.writeThread = new NetworkWriterThread(this, var2 + " write thread");
+       this.readThread.start();

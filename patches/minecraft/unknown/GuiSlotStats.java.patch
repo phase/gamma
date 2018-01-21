@@ -1,0 +1,10 @@
+--- minecraft/src/net/minecraft/unknown/GuiSlotStats.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiSlotStats.java	2018-01-21 12:02:09.413795619 -0800
+@@ -6,6 +6,7 @@
+ import org.lwjgl.input.Mouse;
+ 
+ abstract class GuiSlotStats extends GuiSlot {
++   public GuiStats field_27269_g;
+    protected int field_27268_b;
+    protected List field_27273_c;
+    protected Comparator field_27272_d;

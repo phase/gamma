@@ -1,0 +1,13 @@
+--- minecraft/src/net/minecraft/unknown/ThreadDownloadImage.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadDownloadImage.java	2018-01-21 13:07:35.156479907 -0800
+@@ -5,6 +5,10 @@
+ import javax.imageio.ImageIO;
+ 
+ class ThreadDownloadImage extends Thread {
++   public ThreadDownloadImageData imageData;
++   public String location;
++   public ImageBuffer buffer;
++
+    ThreadDownloadImage(ThreadDownloadImageData var1, String var2, ImageBuffer var3) {
+       this.imageData = var1;
+       this.location = var2;

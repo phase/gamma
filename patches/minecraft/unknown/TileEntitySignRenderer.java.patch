@@ -1,0 +1,14 @@
+--- minecraft/src/net/minecraft/unknown/TileEntitySignRenderer.java	2018-01-21 00:00:34.000000000 -0800
++++ src/main/java/net/minecraft/unknown/TileEntitySignRenderer.java	2018-01-21 12:30:39.819287976 -0800
+@@ -8,6 +8,11 @@
+    public TileEntitySignRenderer() {
+    }
+ 
++   @Override
++   public void renderTileEntityAt(TileEntity var1, double var2, double var4, double var6, float var8) {
++      if (var1 instanceof TileEntitySign) renderTileEntitySignAt((TileEntitySign) var1, var2, var4, var6, var8);
++   }
++
+    public void renderTileEntitySignAt(TileEntitySign var1, double var2, double var4, double var6, float var8) {
+       Block var9 = var1.getBlockType();
+       GL11.glPushMatrix();

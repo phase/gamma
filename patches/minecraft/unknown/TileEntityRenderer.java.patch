@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/TileEntityRenderer.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/TileEntityRenderer.java	2018-01-21 12:22:23.579151373 -0800
+@@ -5,7 +5,7 @@
+ import org.lwjgl.opengl.GL11;
+ 
+ public class TileEntityRenderer {
+-   private Map specialRendererMap = new HashMap();
++   private Map<Class<? extends TileEntity>, TileEntitySpecialRenderer> specialRendererMap = new HashMap<>();
+    public static TileEntityRenderer instance = new TileEntityRenderer();
+    private FontRenderer fontRenderer;
+    public static double staticPlayerX;

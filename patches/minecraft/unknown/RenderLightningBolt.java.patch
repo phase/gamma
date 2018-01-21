@@ -1,0 +1,14 @@
+--- minecraft/src/net/minecraft/unknown/RenderLightningBolt.java	2018-01-21 00:00:34.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderLightningBolt.java	2018-01-21 13:04:40.628001749 -0800
+@@ -7,6 +7,11 @@
+    public RenderLightningBolt() {
+    }
+ 
++   @Override
++   public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9) {
++      if(var1 instanceof EntityLightningBolt) func_27002_a((EntityLightningBolt) var1, var2, var4, var6, var8, var9);
++   }
++
+    public void func_27002_a(EntityLightningBolt var1, double var2, double var4, double var6, float var8, float var9) {
+       Tessellator var10 = Tessellator.instance;
+       GL11.glDisable(3553);

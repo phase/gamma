@@ -1,0 +1,14 @@
+--- minecraft/src/net/minecraft/unknown/RenderArrow.java	2018-01-21 00:00:32.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderArrow.java	2018-01-21 13:05:36.384119345 -0800
+@@ -6,6 +6,11 @@
+    public RenderArrow() {
+    }
+ 
++   @Override
++   public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9) {
++      if (var1 instanceof EntityArrow) renderArrow((EntityArrow) var1, var2, var4, var6, var8, var9);
++   }
++
+    public void renderArrow(EntityArrow var1, double var2, double var4, double var6, float var8, float var9) {
+       if (var1.prevRotationYaw != 0.0F || var1.prevRotationPitch != 0.0F) {
+          this.loadTexture("/item/arrows.png");

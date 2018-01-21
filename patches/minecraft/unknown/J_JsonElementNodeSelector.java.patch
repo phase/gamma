@@ -1,0 +1,33 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonElementNodeSelector.java	2018-01-21 00:00:34.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonElementNodeSelector.java	2018-01-21 12:17:45.236990755 -0800
+@@ -3,10 +3,17 @@
+ import java.util.List;
+ 
+ final class J_JsonElementNodeSelector extends J_LeafFunctor {
++   public int field_27069_a;
++
+    J_JsonElementNodeSelector(int var1) {
+       this.field_27069_a = var1;
+    }
+ 
++   @Override
++   public boolean func_27058_a(Object var1) {
++      return var1 instanceof List && func_27067_a((List) var1);
++   }
++
+    public boolean func_27067_a(List var1) {
+       return var1.size() > this.field_27069_a;
+    }
+@@ -15,6 +22,12 @@
+       return Integer.toString(this.field_27069_a);
+    }
+ 
++   @Override
++   protected Object func_27063_c(Object var1) {
++      if (var1 instanceof List) return func_27068_b((List) var1);
++      return null;
++   }
++
+    public J_JsonNode func_27068_b(List var1) {
+       return (J_JsonNode)var1.get(this.field_27069_a);
+    }

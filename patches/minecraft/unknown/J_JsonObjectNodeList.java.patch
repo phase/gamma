@@ -1,0 +1,16 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonObjectNodeList.java	2018-01-21 00:00:34.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonObjectNodeList.java	2018-01-21 13:00:23.575286380 -0800
+@@ -3,10 +3,12 @@
+ import java.util.HashMap;
+ 
+ class J_JsonObjectNodeList extends HashMap {
++   public J_JsonObjectNodeBuilder field_27308_a;
++
+    J_JsonObjectNodeList(J_JsonObjectNodeBuilder var1) {
+       this.field_27308_a = var1;
+ 
+-      for(J_JsonFieldBuilder var3 : J_JsonObjectNodeBuilder.func_27236_a(this.field_27308_a)) {
++      for(J_JsonFieldBuilder var3 : this.field_27308_a.field_27238_a) {
+          this.put(var3.func_27303_b(), var3.func_27302_c());
+       }
+ 

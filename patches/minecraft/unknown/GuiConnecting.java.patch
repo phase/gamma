@@ -1,0 +1,21 @@
+--- minecraft/src/net/minecraft/unknown/GuiConnecting.java	2018-01-21 00:00:40.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GuiConnecting.java	2018-01-21 12:25:08.092522604 -0800
+@@ -12,6 +12,18 @@
+       (new ThreadConnectToServer(this, var1, var2, var3)).start();
+    }
+ 
++   public static void setNetClientHandler(GuiConnecting gc, NetClientHandler n) {
++      gc.clientHandler = n;
++   }
++
++   public static NetClientHandler getNetClientHandler(GuiConnecting gc) {
++      return gc.clientHandler;
++   }
++
++   public static boolean isCancelled(GuiConnecting gc) {
++      return gc.cancelled;
++   }
++
+    public void updateScreen() {
+       if (this.clientHandler != null) {
+          this.clientHandler.processReadPackets();

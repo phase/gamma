@@ -1,0 +1,10 @@
+--- minecraft/src/net/minecraft/unknown/EnumJsonNodeTypeMappingHelper.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/EnumJsonNodeTypeMappingHelper.java	2018-01-21 12:21:28.394704799 -0800
+@@ -2,6 +2,7 @@
+ 
+ // $FF: synthetic class
+ class EnumJsonNodeTypeMappingHelper {
++   public static int[] field_27341_a = new int[7];
+    static {
+       try {
+          field_27341_a[EnumJsonNodeType.ARRAY.ordinal()] = 1;

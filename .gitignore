@@ -1,0 +1,11 @@
+.gradle/
+.idea/
+build/
+out/
+
+mappings/mcp.srg
+mcp/
+minecraft/
+src/main/java/net/minecraft/
+src/main/resources/
+

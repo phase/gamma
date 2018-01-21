@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/StatBase.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/StatBase.java	2018-01-21 12:38:26.499320785 -0800
+@@ -16,6 +16,8 @@
+    public static IStatType field_27086_j = new StatTypeTime();
+    public static IStatType field_27085_k = new StatTypeDistance();
+ 
++   public static DecimalFormat func_27081_j() { return field_26904_c; }
++
+    public StatBase(int var1, String var2, IStatType var3) {
+       this.field_27088_g = false;
+       this.statId = var1;

@@ -1,10 +1,31 @@
 --- minecraft/src/net/minecraft/unknown/ThreadStatSyncherReceive.java	2018-01-21 00:00:38.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/ThreadStatSyncherReceive.java	2018-01-21 00:43:05.544248037 -0800
-@@ -1,6 +1,7 @@
++++ src/main/java/net/minecraft/unknown/ThreadStatSyncherReceive.java	2018-01-21 12:00:24.986320600 -0800
+@@ -1,21 +1,23 @@
  package net.minecraft.unknown;
  
  class ThreadStatSyncherReceive extends Thread {
 +   StatsSyncher field_27231_a;
     ThreadStatSyncherReceive(StatsSyncher var1) {
        this.field_27231_a = var1;
+    }
+ 
+    public void run() {
+       try {
+-         if (StatsSyncher.func_27422_a(this.field_27231_a) != null) {
+-            StatsSyncher.func_27412_a(this.field_27231_a, StatsSyncher.func_27422_a(this.field_27231_a), StatsSyncher.func_27423_b(this.field_27231_a), StatsSyncher.func_27411_c(this.field_27231_a), StatsSyncher.func_27413_d(this.field_27231_a));
+-         } else if (StatsSyncher.func_27423_b(this.field_27231_a).exists()) {
+-            StatsSyncher.func_27421_a(this.field_27231_a, StatsSyncher.func_27409_a(this.field_27231_a, StatsSyncher.func_27423_b(this.field_27231_a), StatsSyncher.func_27411_c(this.field_27231_a), StatsSyncher.func_27413_d(this.field_27231_a)));
++         if (this.field_27231_a.field_27437_b != null) {
++//            TODO: Fix this
++//            StatsSyncher.func_27412_a(this.field_27231_a, StatsSyncher.func_27422_a(this.field_27231_a), StatsSyncher.func_27423_b(this.field_27231_a), StatsSyncher.func_27411_c(this.field_27231_a), StatsSyncher.func_27413_d(this.field_27231_a));
++//         } else if (StatsSyncher.func_27423_b(this.field_27231_a).exists()) {
++//            StatsSyncher.func_27421_a(this.field_27231_a, this.field_27231_a.func_27415_a(StatsSyncher.func_27423_b(this.field_27231_a), StatsSyncher.func_27411_c(this.field_27231_a), StatsSyncher.func_27413_d(this.field_27231_a)));
+          }
+       } catch (Exception var5) {
+          var5.printStackTrace();
+       } finally {
+-         StatsSyncher.func_27416_a(this.field_27231_a, false);
++         this.field_27231_a.busy = false;
+       }
+ 
     }
