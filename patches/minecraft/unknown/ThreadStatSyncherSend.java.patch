@@ -1,0 +1,12 @@
+--- minecraft/src/net/minecraft/unknown/ThreadStatSyncherSend.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadStatSyncherSend.java	2018-01-21 00:47:25.879242690 -0800
+@@ -3,6 +3,9 @@
+ import java.util.Map;
+ 
+ class ThreadStatSyncherSend extends Thread {
++   private StatsSyncher field_27232_b;
++   private Map field_27233_a;
++
+    ThreadStatSyncherSend(StatsSyncher var1, Map var2) {
+       this.field_27232_b = var1;
+       this.field_27233_a = var2;

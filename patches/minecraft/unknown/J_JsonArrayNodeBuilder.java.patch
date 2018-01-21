@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/J_JsonArrayNodeBuilder.java	2018-01-21 00:00:24.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_JsonArrayNodeBuilder.java	2018-01-21 00:47:47.035499695 -0800
+@@ -4,7 +4,7 @@
+ import java.util.List;
+ 
+ public final class J_JsonArrayNodeBuilder implements J_JsonNodeBuilder {
+-   private final List field_27242_a = new LinkedList();
++   private final List<J_JsonNodeBuilder> field_27242_a = new LinkedList<>();
+ 
+    J_JsonArrayNodeBuilder() {
+    }
+@@ -14,7 +14,7 @@
+       return this;
+    }
+ 
+-   public J_JsonRootNode func_27241_a() {
++   public J_JsonRootNode func_27234_b() {
+       LinkedList var1 = new LinkedList();
+ 
+       for(J_JsonNodeBuilder var3 : this.field_27242_a) {

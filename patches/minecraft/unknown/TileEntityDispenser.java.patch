@@ -1,0 +1,12 @@
+--- minecraft/src/net/minecraft/unknown/TileEntityDispenser.java	2018-01-21 00:00:18.000000000 -0800
++++ src/main/java/net/minecraft/unknown/TileEntityDispenser.java	2018-01-21 00:29:32.125217803 -0800
+@@ -110,4 +110,9 @@
+          return var1.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+       }
+    }
++
++   @Override
++   public void onInventoryChanged() {
++      System.out.println("TileEntityDispenser#onInventoryChanged() called.");
++   }
+ }

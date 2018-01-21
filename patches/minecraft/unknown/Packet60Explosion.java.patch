@@ -1,0 +1,75 @@
+--- minecraft/src/net/minecraft/unknown/Packet60Explosion.java	2018-01-21 00:00:36.000000000 -0800
++++ src/main/java/net/minecraft/unknown/Packet60Explosion.java	2018-01-21 00:36:56.880621859 -0800
+@@ -2,6 +2,7 @@
+ 
+ import java.io.DataInputStream;
+ import java.io.DataOutputStream;
++import java.io.IOException;
+ import java.util.HashSet;
+ import java.util.Set;
+ 
+@@ -10,32 +11,36 @@
+    public double explosionY;
+    public double explosionZ;
+    public float explosionSize;
+-   public Set destroyedBlockPositions;
++   public Set<ChunkPosition> destroyedBlockPositions;
+ 
+    public Packet60Explosion() {
+    }
+ 
+    public void readPacketData(DataInputStream var1) {
+-      this.explosionX = var1.readDouble();
+-      this.explosionY = var1.readDouble();
+-      this.explosionZ = var1.readDouble();
+-      this.explosionSize = var1.readFloat();
+-      int var2 = var1.readInt();
+-      this.destroyedBlockPositions = new HashSet();
+-      int var3 = (int)this.explosionX;
+-      int var4 = (int)this.explosionY;
+-      int var5 = (int)this.explosionZ;
+-
+-      for(int var6 = 0; var6 < var2; ++var6) {
+-         int var7 = var1.readByte() + var3;
+-         int var8 = var1.readByte() + var4;
+-         int var9 = var1.readByte() + var5;
+-         this.destroyedBlockPositions.add(new ChunkPosition(var7, var8, var9));
++      try {
++         this.explosionX = var1.readDouble();
++         this.explosionY = var1.readDouble();
++         this.explosionZ = var1.readDouble();
++         this.explosionSize = var1.readFloat();
++         int var2 = var1.readInt();
++         this.destroyedBlockPositions = new HashSet();
++         int var3 = (int) this.explosionX;
++         int var4 = (int) this.explosionY;
++         int var5 = (int) this.explosionZ;
++
++         for (int var6 = 0; var6 < var2; ++var6) {
++            int var7 = var1.readByte() + var3;
++            int var8 = var1.readByte() + var4;
++            int var9 = var1.readByte() + var5;
++            this.destroyedBlockPositions.add(new ChunkPosition(var7, var8, var9));
++         }
++      } catch(Exception e) {
++         e.printStackTrace();
+       }
+-
+    }
+ 
+    public void writePacketData(DataOutputStream var1) {
++      try {
+       var1.writeDouble(this.explosionX);
+       var1.writeDouble(this.explosionY);
+       var1.writeDouble(this.explosionZ);
+@@ -53,7 +58,9 @@
+          var1.writeByte(var8);
+          var1.writeByte(var9);
+       }
+-
++      } catch(Exception e) {
++         e.printStackTrace();
++      }
+    }
+ 
+    public void processPacket(NetHandler var1) {

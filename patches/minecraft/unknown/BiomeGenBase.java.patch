@@ -1,6 +1,6 @@
---- minecraft/src/net/minecraft/unknown/BiomeGenBase.java	2018-01-20 21:02:52.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/BiomeGenBase.java	2018-01-20 21:54:13.100254758 -0800
-@@ -47,9 +47,9 @@
+--- minecraft/src/net/minecraft/unknown/BiomeGenBase.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/BiomeGenBase.java	2018-01-21 00:01:14.555361631 -0800
+@@ -24,9 +24,9 @@
     public byte topBlock;
     public byte fillerBlock;
     public int field_6502_q;
@@ -13,7 +13,7 @@
     private boolean enableSnow;
     private boolean enableRain;
     private static BiomeGenBase[] biomeLookupTable = new BiomeGenBase[4096];
-@@ -58,9 +58,9 @@
+@@ -35,9 +35,9 @@
        this.topBlock = (byte)Block.grass.blockID;
        this.fillerBlock = (byte)Block.dirt.blockID;
        this.field_6502_q = 5169201;

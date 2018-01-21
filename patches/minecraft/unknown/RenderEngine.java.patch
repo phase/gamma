@@ -1,0 +1,28 @@
+--- minecraft/src/net/minecraft/unknown/RenderEngine.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderEngine.java	2018-01-21 00:52:59.707460825 -0800
+@@ -18,13 +18,13 @@
+ 
+ public class RenderEngine {
+    public static boolean useMipmaps = false;
+-   private HashMap textureMap = new HashMap();
+-   private HashMap field_28151_c = new HashMap();
++   private HashMap<String, Integer> textureMap = new HashMap<>();
++   private HashMap<String, Integer[]> field_28151_c = new HashMap<>();
+    private HashMap textureNameToImageMap = new HashMap();
+    private IntBuffer singleIntBuffer = GLAllocation.createDirectIntBuffer(1);
+    private ByteBuffer imageData = GLAllocation.createDirectByteBuffer(1048576);
+    private List textureList = new ArrayList();
+-   private Map urlToImageDataMap = new HashMap();
++   private Map<String, ThreadDownloadImageData> urlToImageDataMap = new HashMap<>();
+    private GameSettings options;
+    private boolean clampTexture = false;
+    private boolean blurTexture = false;
+@@ -44,7 +44,7 @@
+ 
+    public int[] func_28149_a(String var1) {
+       TexturePackBase var2 = this.texturePack.selectedTexturePack;
+-      int[] var3 = (int[])this.field_28151_c.get(var1);
++      Integer[] var3 = this.field_28151_c.get(var1);
+       if (var3 != null) {
+          return var3;
+       } else {

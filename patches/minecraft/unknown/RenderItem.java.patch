@@ -1,0 +1,16 @@
+--- minecraft/src/net/minecraft/unknown/RenderItem.java	2018-01-21 00:00:18.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderItem.java	2018-01-21 00:34:34.538304867 -0800
+@@ -13,6 +13,13 @@
+       this.field_194_c = 0.75F;
+    }
+ 
++   @Override
++   public void doRender(Entity var1, double var2, double var4, double var6, float var8, float var9) {
++      if (var1 instanceof EntityItem) {
++         doRenderItem((EntityItem) var1, var2, var4, var6, var8, var9);
++      }
++   }
++
+    public void doRenderItem(EntityItem var1, double var2, double var4, double var6, float var8, float var9) {
+       this.random.setSeed(187L);
+       ItemStack var10 = var1.item;

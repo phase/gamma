@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/MCHashEntry.java	2018-01-21 00:00:40.000000000 -0800
++++ src/main/java/net/minecraft/unknown/MCHashEntry.java	2018-01-21 00:41:54.943503339 -0800
+@@ -41,7 +41,7 @@
+    }
+ 
+    public final int hashCode() {
+-      return MCHash.getHash(this.hashEntry);
++      return MCHash.computeHash(this.hashEntry);
+    }
+ 
+    public final String toString() {

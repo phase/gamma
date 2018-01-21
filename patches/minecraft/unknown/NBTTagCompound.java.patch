@@ -1,0 +1,38 @@
+--- minecraft/src/net/minecraft/unknown/NBTTagCompound.java	2018-01-21 00:00:32.000000000 -0800
++++ src/main/java/net/minecraft/unknown/NBTTagCompound.java	2018-01-21 00:31:24.775144913 -0800
+@@ -2,12 +2,13 @@
+ 
+ import java.io.DataInput;
+ import java.io.DataOutput;
++import java.io.IOException;
+ import java.util.Collection;
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+ public class NBTTagCompound extends NBTBase {
+-   private Map tagMap = new HashMap();
++   private Map<String, NBTBase> tagMap = new HashMap<>();
+ 
+    public NBTTagCompound() {
+    }
+@@ -17,7 +18,10 @@
+          NBTBase.writeTag(var3, var1);
+       }
+ 
+-      var1.writeByte(0);
++      try {
++         var1.writeByte(0);
++      } catch (IOException e) {
++      }
+    }
+ 
+    void readTagContents(DataInput var1) {
+@@ -30,7 +34,7 @@
+ 
+    }
+ 
+-   public Collection func_28110_c() {
++   public Collection<NBTBase> func_28110_c() {
+       return this.tagMap.values();
+    }
+ 

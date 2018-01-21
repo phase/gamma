@@ -1,6 +1,6 @@
---- minecraft/src/net/minecraft/unknown/EnumOSMappingHelper.java	2018-01-20 21:02:54.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/EnumOSMappingHelper.java	2018-01-20 21:41:14.802041507 -0800
-@@ -4,6 +4,9 @@
+--- minecraft/src/net/minecraft/unknown/EnumOSMappingHelper.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/EnumOSMappingHelper.java	2018-01-21 00:01:14.563361634 -0800
+@@ -2,6 +2,9 @@
  
  // $FF: synthetic class
  public class EnumOSMappingHelper {

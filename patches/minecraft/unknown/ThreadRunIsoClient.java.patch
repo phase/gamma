@@ -1,0 +1,18 @@
+--- minecraft/src/net/minecraft/unknown/ThreadRunIsoClient.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadRunIsoClient.java	2018-01-21 00:50:21.905427802 -0800
+@@ -1,12 +1,14 @@
+ package net.minecraft.unknown;
+ 
+ class ThreadRunIsoClient extends Thread {
++   private CanvasIsomPreview isoCanvas;
++
+    ThreadRunIsoClient(CanvasIsomPreview var1) {
+       this.isoCanvas = var1;
+    }
+ 
+    public void run() {
+-      while(CanvasIsomPreview.isRunning(this.isoCanvas)) {
++      while(isoCanvas.running) {
+          this.isoCanvas.showNextBuffer();
+ 
+          try {

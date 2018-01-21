@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/PacketCounter.java	2018-01-21 00:00:32.000000000 -0800
++++ src/main/java/net/minecraft/unknown/PacketCounter.java	2018-01-21 00:34:45.926491703 -0800
+@@ -4,7 +4,7 @@
+    private int totalPackets;
+    private long totalBytes;
+ 
+-   private PacketCounter() {
++   public PacketCounter() {
+    }
+ 
+    public void addPacket(int var1) {

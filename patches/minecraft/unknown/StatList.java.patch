@@ -1,0 +1,13 @@
+--- minecraft/src/net/minecraft/unknown/StatList.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/StatList.java	2018-01-21 00:51:28.622280089 -0800
+@@ -10,8 +10,8 @@
+    protected static Map field_25169_C = new HashMap();
+    public static List field_25188_a = new ArrayList();
+    public static List field_25187_b = new ArrayList();
+-   public static List field_25186_c = new ArrayList();
+-   public static List field_25185_d = new ArrayList();
++   public static List<StatCrafting> field_25186_c = new ArrayList<>();
++   public static List<StatCrafting> field_25185_d = new ArrayList<>();
+    public static StatBase startGameStat = (new StatBasic(1000, StatCollector.translateToLocal("stat.startGame"))).func_27082_h().registerStat();
+    public static StatBase createWorldStat = (new StatBasic(1001, StatCollector.translateToLocal("stat.createWorld"))).func_27082_h().registerStat();
+    public static StatBase loadWorldStat = (new StatBasic(1002, StatCollector.translateToLocal("stat.loadWorld"))).func_27082_h().registerStat();

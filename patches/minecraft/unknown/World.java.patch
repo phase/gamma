@@ -1,15 +1,53 @@
---- minecraft/src/net/minecraft/unknown/World.java	2018-01-20 21:02:50.000000000 -0800
-+++ src/main/java/net/minecraft/unknown/World.java	2018-01-20 22:00:57.573754784 -0800
-@@ -55,7 +55,7 @@
+--- minecraft/src/net/minecraft/unknown/World.java	2018-01-21 00:00:26.000000000 -0800
++++ src/main/java/net/minecraft/unknown/World.java	2018-01-21 00:15:45.492431268 -0800
+@@ -17,8 +17,8 @@
+    private TreeSet scheduledTickTreeSet;
     private Set scheduledTickSet;
     public List loadedTileEntityList;
-    private List field_30900_E;
+-   private List field_30900_E;
 -   public List playerEntities;
++   private List<TileEntity> field_30900_E;
 +   public List<EntityPlayer> playerEntities;
     public List weatherEffects;
     private long field_1019_F;
     public int skylightSubtracted;
-@@ -2033,7 +2033,7 @@
+@@ -50,7 +50,7 @@
+    private boolean spawnHostileMobs;
+    private boolean spawnPeacefulMobs;
+    static int lightingUpdatesScheduled = 0;
+-   private Set positionsToUpdate;
++   private Set<ChunkCoordIntPair> positionsToUpdate;
+    private int soundCounter;
+    private List field_1012_M;
+    public boolean multiplayerWorld;
+@@ -740,7 +740,7 @@
+                   return null;
+                }
+ 
+-               var12 = 1;
++               boolean var43 = true;
+                boolean var41 = true;
+                boolean var42 = true;
+                double var15 = 999.0D;
+@@ -751,7 +751,7 @@
+                } else if (var5 < var8) {
+                   var15 = (double)var8 + 0.0D;
+                } else {
+-                  var12 = 0;
++                  var43 = false;
+                }
+ 
+                if (var6 > var9) {
+@@ -776,7 +776,7 @@
+                double var27 = var2.xCoord - var1.xCoord;
+                double var29 = var2.yCoord - var1.yCoord;
+                double var31 = var2.zCoord - var1.zCoord;
+-               if (var12) {
++               if (var43) {
+                   var21 = (var15 - var1.xCoord) / var27;
+                }
+ 
+@@ -2008,7 +2008,7 @@
        return this.field_1012_M;
     }
  

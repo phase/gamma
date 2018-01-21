@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/MapData.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/MapData.java	2018-01-21 00:40:34.046695945 -0800
+@@ -14,7 +14,7 @@
+    public int field_28175_g;
+    public List field_28174_h = new ArrayList();
+    private Map field_28172_j = new HashMap();
+-   public List field_28173_i = new ArrayList();
++   public List<MapCoord> field_28173_i = new ArrayList<>();
+ 
+    public MapData(String var1) {
+       super(var1);

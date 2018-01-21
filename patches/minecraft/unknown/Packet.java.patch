@@ -1,0 +1,35 @@
+--- minecraft/src/net/minecraft/unknown/Packet.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/Packet.java	2018-01-21 00:35:21.391071810 -0800
+@@ -56,7 +56,7 @@
+       return ((Integer)packetClassToIdMap.get(this.getClass())).intValue();
+    }
+ 
+-   public static Packet readPacket(DataInputStream var0, boolean var1) {
++   public static Packet readPacket(DataInputStream var0, boolean var1) throws IOException {
+       int var2 = 0;
+       Packet var3 = null;
+ 
+@@ -96,12 +96,12 @@
+       return var3;
+    }
+ 
+-   public static void writePacket(Packet var0, DataOutputStream var1) {
++   public static void writePacket(Packet var0, DataOutputStream var1) throws IOException {
+       var1.write(var0.getPacketId());
+       var0.writePacketData(var1);
+    }
+ 
+-   public static void writeString(String var0, DataOutputStream var1) {
++   public static void writeString(String var0, DataOutputStream var1) throws IOException {
+       if (var0.length() > 32767) {
+          throw new IOException("String too big");
+       } else {
+@@ -110,7 +110,7 @@
+       }
+    }
+ 
+-   public static String readString(DataInputStream var0, int var1) {
++   public static String readString(DataInputStream var0, int var1) throws IOException {
+       short var2 = var0.readShort();
+       if (var2 > var1) {
+          throw new IOException("Received string length longer than maximum allowed (" + var2 + " > " + var1 + ")");

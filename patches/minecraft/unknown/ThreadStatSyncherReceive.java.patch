@@ -1,0 +1,10 @@
+--- minecraft/src/net/minecraft/unknown/ThreadStatSyncherReceive.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/ThreadStatSyncherReceive.java	2018-01-21 00:43:05.544248037 -0800
+@@ -1,6 +1,7 @@
+ package net.minecraft.unknown;
+ 
+ class ThreadStatSyncherReceive extends Thread {
++   StatsSyncher field_27231_a;
+    ThreadStatSyncherReceive(StatsSyncher var1) {
+       this.field_27231_a = var1;
+    }

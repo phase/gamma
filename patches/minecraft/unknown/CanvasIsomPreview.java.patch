@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/CanvasIsomPreview.java	2018-01-21 00:00:18.000000000 -0800
++++ src/main/java/net/minecraft/unknown/CanvasIsomPreview.java	2018-01-21 00:50:21.861427244 -0800
+@@ -26,7 +26,7 @@
+    private boolean displayHelpText = true;
+    private World worldObj;
+    private File dataFolder = this.getMinecraftDir();
+-   private boolean running = true;
++   public boolean running = true;
+    private List imageBufferList = Collections.synchronizedList(new LinkedList());
+    private IsoImageBuffer[][] imageBuffers = new IsoImageBuffer[64][64];
+    private int field_1785_i;
+@@ -43,7 +43,7 @@
+    }
+ 
+    public File getAppDir(String var1) {
+-      // $FF: Couldn't be decompiled
++      return new File("./." + var1);
+    }
+ 
+    private static EnumOS1 getOs() {

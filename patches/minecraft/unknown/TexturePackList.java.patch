@@ -1,0 +1,24 @@
+--- minecraft/src/net/minecraft/unknown/TexturePackList.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/TexturePackList.java	2018-01-21 00:20:22.198821469 -0800
+@@ -9,10 +9,10 @@
+ import net.minecraft.client.Minecraft;
+ 
+ public class TexturePackList {
+-   private List availableTexturePacks = new ArrayList();
++   private List<TexturePackBase> availableTexturePacks = new ArrayList<>();
+    private TexturePackBase defaultTexturePack = new TexturePackDefault();
+    public TexturePackBase selectedTexturePack;
+-   private Map field_6538_d = new HashMap();
++   private Map<String, TexturePackCustom> field_6538_d = new HashMap<>();
+    private Minecraft mc;
+    private File texturePackDir;
+    private String currentTexturePack;
+@@ -68,7 +68,7 @@
+                   }
+ 
+                   var1.add(var12);
+-               } catch (IOException var9) {
++               } catch (Exception var9) {
+                   var9.printStackTrace();
+                }
+             }

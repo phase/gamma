@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/MapStorage.java	2018-01-21 00:00:28.000000000 -0800
++++ src/main/java/net/minecraft/unknown/MapStorage.java	2018-01-21 00:32:00.759751656 -0800
+@@ -14,7 +14,7 @@
+    private ISaveHandler field_28191_a;
+    private Map loadedDataMap = new HashMap();
+    private List loadedDataList = new ArrayList();
+-   private Map idCounts = new HashMap();
++   private Map<String, Short> idCounts = new HashMap();
+ 
+    public MapStorage(ISaveHandler var1) {
+       this.field_28191_a = var1;
+@@ -145,7 +145,7 @@
+                NBTTagCompound var4 = new NBTTagCompound();
+ 
+                for(String var6 : this.idCounts.keySet()) {
+-                  short var7 = ((Short)this.idCounts.get(var6)).shortValue();
++                  short var7 = this.idCounts.get(var6);
+                   var4.setShort(var6, var7);
+                }
+ 

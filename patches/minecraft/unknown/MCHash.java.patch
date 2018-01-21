@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/MCHash.java	2018-01-21 00:00:30.000000000 -0800
++++ src/main/java/net/minecraft/unknown/MCHash.java	2018-01-21 00:41:54.991503833 -0800
+@@ -10,7 +10,7 @@
+    public MCHash() {
+    }
+ 
+-   private static int computeHash(int var0) {
++   public static int computeHash(int var0) {
+       var0 = var0 ^ var0 >>> 20 ^ var0 >>> 12;
+       return var0 ^ var0 >>> 7 ^ var0 >>> 4;
+    }

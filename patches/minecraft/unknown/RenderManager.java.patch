@@ -1,0 +1,11 @@
+--- minecraft/src/net/minecraft/unknown/RenderManager.java	2018-01-21 00:00:38.000000000 -0800
++++ src/main/java/net/minecraft/unknown/RenderManager.java	2018-01-21 00:41:03.838987122 -0800
+@@ -5,7 +5,7 @@
+ import org.lwjgl.opengl.GL11;
+ 
+ public class RenderManager {
+-   private Map entityRenderMap = new HashMap();
++   private Map<Class<? extends Entity>, Render> entityRenderMap = new HashMap<>();
+    public static RenderManager instance = new RenderManager();
+    private FontRenderer fontRenderer;
+    public static double renderPosX;

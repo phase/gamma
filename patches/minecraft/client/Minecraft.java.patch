@@ -1,20 +1,29 @@
---- minecraft/src/net/minecraft/client/Minecraft.java	2018-01-20 21:03:10.000000000 -0800
-+++ src/main/java/net/minecraft/client/Minecraft.java	2018-01-20 21:39:38.085724679 -0800
-@@ -194,7 +194,7 @@
-       this.ac = var2;
+--- minecraft/src/net/minecraft/client/Minecraft.java	2018-01-21 00:00:46.000000000 -0800
++++ src/main/java/net/minecraft/client/Minecraft.java	2018-01-21 00:13:01.567974119 -0800
+@@ -192,7 +192,7 @@
+       this.serverPort = var2;
     }
  
--   public void a() {
-+   public void a() throws LWJGLException {
-       if(this.m != null) {
-          Graphics var1 = this.m.getGraphics();
-          if(var1 != null) {
-@@ -304,7 +304,7 @@
+-   public void startGame() {
++   public void startGame() throws LWJGLException {
+       if (this.mcCanvas != null) {
+          Graphics var1 = this.mcCanvas.getGraphics();
+          if (var1 != null) {
+@@ -302,7 +302,7 @@
  
     }
  
--   private void x() {
-+   private void x() throws LWJGLException {
-       ScaledResolution var1 = new ScaledResolution(this.z, this.d, this.e);
+-   private void loadScreen() {
++   private void loadScreen() throws LWJGLException {
+       ScaledResolution var1 = new ScaledResolution(this.gameSettings, this.displayWidth, this.displayHeight);
        GL11.glClear(16640);
        GL11.glMatrixMode(5889);
+@@ -358,7 +358,7 @@
+    }
+ 
+    public static File getAppDir(String var0) {
+-      // $FF: Couldn't be decompiled
++      return new File("./." + var0);
+    }
+ 
+    private static EnumOS2 getOs() {
