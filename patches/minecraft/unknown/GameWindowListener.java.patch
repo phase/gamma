@@ -1,0 +1,12 @@
+--- minecraft/src/net/minecraft/unknown/GameWindowListener.java	2018-01-20 21:02:54.000000000 -0800
++++ src/main/java/net/minecraft/unknown/GameWindowListener.java	2018-01-20 21:55:29.152453630 -0800
+@@ -5,6 +5,9 @@
+ import net.minecraft.client.Minecraft;
+ 
+ public final class GameWindowListener extends WindowAdapter {
++   public Minecraft mc;
++   public Thread mcThread;
++
+    public GameWindowListener(Minecraft var1, Thread var2) {
+       this.mc = var1;
+       this.mcThread = var2;

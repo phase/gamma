@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/unknown/World.java	2018-01-20 21:02:50.000000000 -0800
++++ src/main/java/net/minecraft/unknown/World.java	2018-01-20 22:00:57.573754784 -0800
+@@ -55,7 +55,7 @@
+    private Set scheduledTickSet;
+    public List loadedTileEntityList;
+    private List field_30900_E;
+-   public List playerEntities;
++   public List<EntityPlayer> playerEntities;
+    public List weatherEffects;
+    private long field_1019_F;
+    public int skylightSubtracted;
+@@ -2033,7 +2033,7 @@
+       return this.field_1012_M;
+    }
+ 
+-   public List getEntitiesWithinAABB(Class var1, AxisAlignedBB var2) {
++   public List<Entity> getEntitiesWithinAABB(Class var1, AxisAlignedBB var2) {
+       int var3 = MathHelper.floor_double((var2.minX - 2.0D) / 16.0D);
+       int var4 = MathHelper.floor_double((var2.maxX + 2.0D) / 16.0D);
+       int var5 = MathHelper.floor_double((var2.minZ - 2.0D) / 16.0D);

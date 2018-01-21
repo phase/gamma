@@ -1,0 +1,28 @@
+--- minecraft/src/net/minecraft/unknown/BiomeGenBase.java	2018-01-20 21:02:52.000000000 -0800
++++ src/main/java/net/minecraft/unknown/BiomeGenBase.java	2018-01-20 21:54:13.100254758 -0800
+@@ -47,9 +47,9 @@
+    public byte topBlock;
+    public byte fillerBlock;
+    public int field_6502_q;
+-   protected List spawnableMonsterList;
+-   protected List spawnableCreatureList;
+-   protected List spawnableWaterCreatureList;
++   protected List<SpawnListEntry> spawnableMonsterList;
++   protected List<SpawnListEntry> spawnableCreatureList;
++   protected List<SpawnListEntry> spawnableWaterCreatureList;
+    private boolean enableSnow;
+    private boolean enableRain;
+    private static BiomeGenBase[] biomeLookupTable = new BiomeGenBase[4096];
+@@ -58,9 +58,9 @@
+       this.topBlock = (byte)Block.grass.blockID;
+       this.fillerBlock = (byte)Block.dirt.blockID;
+       this.field_6502_q = 5169201;
+-      this.spawnableMonsterList = new ArrayList();
+-      this.spawnableCreatureList = new ArrayList();
+-      this.spawnableWaterCreatureList = new ArrayList();
++      this.spawnableMonsterList = new ArrayList<>();
++      this.spawnableCreatureList = new ArrayList<>();
++      this.spawnableWaterCreatureList = new ArrayList<>();
+       this.enableRain = true;
+       this.spawnableMonsterList.add(new SpawnListEntry(EntitySpider.class, 10));
+       this.spawnableMonsterList.add(new SpawnListEntry(EntityZombie.class, 10));

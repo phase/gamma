@@ -1,0 +1,20 @@
+--- minecraft/src/net/minecraft/client/Minecraft.java	2018-01-20 21:03:10.000000000 -0800
++++ src/main/java/net/minecraft/client/Minecraft.java	2018-01-20 21:39:38.085724679 -0800
+@@ -194,7 +194,7 @@
+       this.ac = var2;
+    }
+ 
+-   public void a() {
++   public void a() throws LWJGLException {
+       if(this.m != null) {
+          Graphics var1 = this.m.getGraphics();
+          if(var1 != null) {
+@@ -304,7 +304,7 @@
+ 
+    }
+ 
+-   private void x() {
++   private void x() throws LWJGLException {
+       ScaledResolution var1 = new ScaledResolution(this.z, this.d, this.e);
+       GL11.glClear(16640);
+       GL11.glMatrixMode(5889);

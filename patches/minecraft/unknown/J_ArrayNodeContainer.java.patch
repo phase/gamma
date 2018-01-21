@@ -1,0 +1,12 @@
+--- minecraft/src/net/minecraft/unknown/J_ArrayNodeContainer.java	2018-01-20 21:02:56.000000000 -0800
++++ src/main/java/net/minecraft/unknown/J_ArrayNodeContainer.java	2018-01-20 21:49:50.947553355 -0800
+@@ -7,6 +7,9 @@
+ import net.minecraft.unknown.J_NodeContainer;
+ 
+ class J_ArrayNodeContainer implements J_NodeContainer {
++   public J_JsonListenerToJdomAdapter field_27293_b;
++   public J_JsonArrayNodeBuilder field_27294_a;
++
+    J_ArrayNodeContainer(J_JsonListenerToJdomAdapter var1, J_JsonArrayNodeBuilder var2) {
+       this.field_27293_b = var1;
+       this.field_27294_a = var2;
